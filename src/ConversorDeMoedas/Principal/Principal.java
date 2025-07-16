@@ -71,7 +71,11 @@ public class Principal {
         }catch (RuntimeException e){
             System.out.println(e.getMessage());
         }
-
+        int i = 1;
+        while (i != 0){
+            System.out.println("Digite 0 para continuar");
+            i = scanner.nextInt();
+            }
 
 
 
