@@ -16,50 +16,48 @@ public class Principal {
         String url = "";
         String moeda2 = "";
 
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .setPrettyPrinting()
-                .create();
 
         while (!busca.equalsIgnoreCase("fechar")){
-            System.out.format("\nConversor de moedas - Escolha uma das opções:" +
-                    "\nUSD $:  Dólar Americano" +
-                    "\nBRL R$: Real Brasileiro" +
-                    "\nEUR €:  Euro" +
-                    "\nGBP £:  Libra Esterlina" +
-                    "\nDigite 'fechar' para encerrar");
-            busca = scanner.nextLine();
-            if (busca.equalsIgnoreCase("fechar")) {
-                break;
-            }
-            if (busca.equalsIgnoreCase("usd")){
-                url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/usd/";
-            } else if (busca.equalsIgnoreCase("brl")) {
-                url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/brl/";
-            }else if(busca.equalsIgnoreCase("eur")){
-                url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/eur/";
-            } else if (busca.equalsIgnoreCase("gbp")) {
-                url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/gbp/";
-            }
+                System.out.format("\nConversor de moedas - Escolha uma das opções:" +
+                        "\nUSD $:  Dólar Americano" +
+                        "\nBRL R$: Real Brasileiro" +
+                        "\nEUR €:  Euro" +
+                        "\nGBP £:  Libra Esterlina" +
+                        "\nDigite 'fechar' para encerrar");
+                busca = scanner.nextLine();
+                if (busca.equalsIgnoreCase("fechar")) {
+                    break;
+                }
+                if (busca.equalsIgnoreCase("usd")) {
+                    url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/usd/";
+                } else if (busca.equalsIgnoreCase("brl")) {
+                    url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/brl/";
+                } else if (busca.equalsIgnoreCase("eur")) {
+                    url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/eur/";
+                } else if (busca.equalsIgnoreCase("gbp")) {
+                    url = "https://v6.exchangerate-api.com/v6/c93a8a062ac04ee17122dd42/pair/gbp/";
+                }
 
-            System.out.println("\nVocê escolheu: " + busca.toUpperCase());
-            System.out.format("\nConverter " + busca.toUpperCase() + " para:" +
-                    "\nUSD $:  Dólar Americano" +
-                    "\nBRL R$: Real Brasileiro" +
-                    "\nEUR €:  Euro" +
-                    "\nGBP £:  Libra Esterlina" +
-                    "\nDigite 'fechar' para encerrar\n");
-            busca = scanner.nextLine();
-            if (busca.equalsIgnoreCase("usd")){
-                moeda2 = "USD";
-            } else if (busca.equalsIgnoreCase("brl")) {
-                moeda2 = "BRL";
-            }else if(busca.equalsIgnoreCase("eur")){
-                moeda2 = "EUR";
-            } else if (busca.equalsIgnoreCase("gbp")) {
-                moeda2 = "GBP";
-            }
-
+                System.out.println("\nVocê escolheu: " + busca.toUpperCase());
+                System.out.format("\nConverter " + busca.toUpperCase() + " para:" +
+                        "\nUSD $:  Dólar Americano" +
+                        "\nBRL R$: Real Brasileiro" +
+                        "\nEUR €:  Euro" +
+                        "\nGBP £:  Libra Esterlina" +
+                        "\nDigite 'fechar' para encerrar\n");
+                busca = scanner.nextLine();
+                if (busca.equalsIgnoreCase("fechar")) {
+                    break;
+                }
+                if (busca.equalsIgnoreCase("usd")) {
+                    moeda2 = "USD";
+                } else if (busca.equalsIgnoreCase("brl")) {
+                    moeda2 = "BRL";
+                } else if (busca.equalsIgnoreCase("eur")) {
+                    moeda2 = "EUR";
+                } else if (busca.equalsIgnoreCase("gbp")) {
+                    moeda2 = "GBP";
+                }
 
         try {
             Conversor consulta = new Conversor();
@@ -71,14 +69,10 @@ public class Principal {
         }catch (RuntimeException e){
             System.out.println(e.getMessage());
         }
-        int i = 1;
-        while (i != 0){
-            System.out.println("Digite 0 para continuar");
-            i = scanner.nextInt();
+            try {
+                Thread.sleep(2000);
+            }catch (InterruptedException e){
             }
-
-
-
         }
         System.out.println("O programa foi finalizado!");
     }

@@ -46,6 +46,7 @@ public class Conversor extends Principal {
                 .newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         return new Gson().fromJson(response.body(), ExchangeRateApi.class);
     } catch (Exception e) {
+
         throw new RuntimeException("Opção Inválida! Digite uma das opções existentes!");
     }
 
